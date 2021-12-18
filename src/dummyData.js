@@ -51,16 +51,16 @@ export const userData = [
 
   export const productData = [
     {
-      name: "Jan 2021",
-      "Sales": 2000,
-    },
-    {
-      name: "Feb 2021",
-      "Sales": 1200,
-    },
-    {
-      name: "Mar 2021",
+      name: "Okt 2021",
       "Sales": 3500,
+    },
+    {
+      name: "Nov 2021",
+      "Sales": 2200,
+    },
+    {
+      name: "Des 2021",
+      "Sales": 5500,
     },
   ];
 
@@ -90,7 +90,7 @@ export const userData = [
       id: 4,
       username: "Alpha",
       email: "alpha@gmail.com",
-      status: "active",
+      status: "nonactive",
       transaction: "Rp.3.500.000",
     },
     {

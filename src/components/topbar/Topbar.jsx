@@ -7,7 +7,12 @@ export default function Topbar() {
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <span className="logo">Dashboard Musica Store</span>
+        <img
+            src="Musica.png"
+            alt=""
+            className="topAvatar"
+          />
+          <span className="logo">   Dashboard</span>
         </div>
         <div className="topRight">
           <div className="topbarIconContainer">

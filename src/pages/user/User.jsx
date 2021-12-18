@@ -14,15 +14,14 @@ export default function User() {
     <div className="user">
       <div className="userTitleContainer">
         <h1 className="userTitle">Edit User</h1>
-        {/* <Link to="/newUser">
+        <Link to="/newUser">
           <button className="userAddButton">Create</button>
-        </Link> */}
+        </Link>
       </div>
       <div className="userContainer">
         <div className="userShow">
           <div className="userShowTop">
-            <img src="../ryan.jpg" alt="" className="userShowImg"
-            />
+            <img src="../ryan.jpg" alt="" className="userShowImg"/>
             <div className="userShowTopTitle">
               <span className="userShowUsername">Ryan Widhistira</span>
               <span className="userShowUserTitle">Owner</span>
