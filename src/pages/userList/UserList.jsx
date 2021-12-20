@@ -51,17 +51,17 @@ export default function UserList() {
     {
       field: "phoneNumber",
       headerName: "Phone Number",
-      width: 120,
+      width: 180,
     },
     {
       field: "birthDate",
       headerName: "Birthdate",
-      width: 120,
+      width: 150,
     },
     {
       field: "action",
       headerName: "Action",
-      width: 120,
+      width: 150,
       renderCell: (params) => {
         return (
           <>

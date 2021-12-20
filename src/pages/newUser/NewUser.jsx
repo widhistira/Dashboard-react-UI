@@ -1,7 +1,7 @@
 import "./newUser.css";
 import "@material-ui/icons";
-import axios from "axios";
 import { useState } from "react";
+import axios from "axios";
 // import { Link } from "react-router-dom";
 
 export default function NewUser() {
@@ -11,6 +11,7 @@ export default function NewUser() {
   const [birthDate,setBirthDate] = useState("")
   const getProductData = async () => {
     try{
+      
       const data = await axios.post('http://localhost:8080/user/add', {
         Name: name,
         Email: email,
@@ -61,15 +62,6 @@ export default function NewUser() {
            placeholder="" />
         </div>
         <div className="newUserItem">
-          <label>Gender</label>
-          <div className="newUserGender">
-            <input type="radio" name="gender" id="male" value="male" />
-            <label htmlFor="male">Male</label>
-            <input type="radio" name="gender" id="female" value="female" />
-            <label htmlFor="female">Female</label>
-          </div>
-        </div>
-        <div className="newUserItem">
           <label>Hobby</label>
           <select className="newUserSelect" name="active" id="active">
             <option value="yes">Basket Ball</option>
@@ -77,6 +69,15 @@ export default function NewUser() {
             <option value="no">Bicycle</option>
             <option value="no">Badminton</option>
           </select>
+        </div>
+        <div className="newUserItem">
+          <label>Gender</label>
+          <div className="newUserGender">
+            <input type="radio" name="gender" id="male" value="male" />
+            <label htmlFor="male">Male</label>
+            <input type="radio" name="gender" id="female" value="female" />
+            <label htmlFor="female">Female</label>
+          </div>
         </div>
         <button type="submit" className="newUserButton">Submit</button>
       </form>
