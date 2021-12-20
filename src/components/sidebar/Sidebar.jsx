@@ -9,9 +9,9 @@ import {
   BarChart,
   MailOutline,
   DynamicFeed,
-  ChatBubbleOutline,
-  WorkOutline,
-  Report,
+  ChatBubbleOutline
+  // WorkOutline,
+  // Report,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 

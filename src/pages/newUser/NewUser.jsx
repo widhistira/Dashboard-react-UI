@@ -1,41 +1,72 @@
 import "./newUser.css";
+import "@material-ui/icons";
+import axios from "axios";
+import { useState } from "react";
+// import { Link } from "react-router-dom";
 
 export default function NewUser() {
+  const [email,setEmail] = useState("")
+  const [name,setName] = useState("")
+  const [phoneNumber,setPhoneNumber] = useState("")
+  const [birthDate,setBirthDate] = useState("")
+  const getProductData = async () => {
+    try{
+      const data = await axios.post('http://localhost:8080/user/add', {
+        Name: name,
+        Email: email,
+        PhoneNumber: phoneNumber,
+        BirthDate: birthDate,
+      })
+    } catch(e){
+      console.log(e)
+    }
+  };
+  function handleSubmit(e) {
+    e.preventDefault()
+    getProductData()
+  }
   return (
     <div className="newUser">
       <h1 className="newUserTitle">New User</h1>
-      <form className="newUserForm">
-        <div className="newUserItem">
+      <form className="newUserForm" onSubmit={handleSubmit}>
+        {/* <div className="newUserItem">
           <label>Username</label>
           <input type="text" placeholder="" />
-        </div>
+        </div> */}
         <div className="newUserItem">
           <label>Full Name</label>
-          <input type="text" placeholder="" />
+          <input 
+          onChange={(e) => setName(e.target.value)}
+          type="text" 
+          placeholder="" />
         </div>
         <div className="newUserItem">
           <label>Email</label>
-          <input type="email" placeholder="" />
+          <input  onChange={(e) => setEmail(e.target.value)} 
+          type="email" 
+          placeholder="" />
         </div>
         <div className="newUserItem">
-          <label>Password</label>
-          <input type="password" placeholder="" />
+          <label>Phone Number</label>
+          <input 
+           onChange={(e) => setPhoneNumber(e.target.value)}
+           type="text" 
+           placeholder="" />
         </div>
         <div className="newUserItem">
-          <label>Phone</label>
-          <input type="text" placeholder="" />
-        </div>
-        <div className="newUserItem">
-          <label>Address</label>
-          <input type="text" placeholder="" />
+          <label>Birth Date</label>
+          <input 
+           onChange={(e) => setBirthDate(e.target.value)}
+           type="text" 
+           placeholder="" />
         </div>
         <div className="newUserItem">
           <label>Gender</label>
           <div className="newUserGender">
             <input type="radio" name="gender" id="male" value="male" />
-            <label for="male">Male</label>
+            <label htmlFor="male">Male</label>
             <input type="radio" name="gender" id="female" value="female" />
-            <label for="female">Female</label>
+            <label htmlFor="female">Female</label>
           </div>
         </div>
         <div className="newUserItem">
@@ -47,7 +78,7 @@ export default function NewUser() {
             <option value="no">Badminton</option>
           </select>
         </div>
-        <button className="newUserButton">Create</button>
+        <button type="submit" className="newUserButton">Submit</button>
       </form>
     </div>
   );

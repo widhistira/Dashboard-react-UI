@@ -56,14 +56,14 @@ export default function User() {
           <span className="userUpdateTitle">Edit User</span>
           <form className="userUpdateForm">
             <div className="userUpdateLeft">
-              <div className="userUpdateItem">
+              {/* <div className="userUpdateItem">
                 <label>Username</label>
                 <input
                   type="text"
                   placeholder="#"
                   className="userUpdateInput"
                 />
-              </div>
+              </div> */}
               <div className="userUpdateItem">
                 <label>Full Name</label>
                 <input
@@ -89,7 +89,7 @@ export default function User() {
                 />
               </div>
               <div className="userUpdateItem">
-                <label>Address</label>
+                <label>Birth Date</label>
                 <input
                   type="text"
                   placeholder="#"

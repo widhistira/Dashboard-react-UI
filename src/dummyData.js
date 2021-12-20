@@ -65,31 +65,31 @@ export const productData = [
 ];
 
 export const users = [{
-  "ID": 3,
+  "id": 3,
   "Name": "Ada gajah",
   "Email": "alpha@gmail.com",
   "PhoneNumber": "08342383442",
   "BirthDate": "1991-01-05"
 }, {
-  "ID": 4,
+  "id": 4,
   "Name": "Ada gajah",
   "Email": "alpha@gmail.com",
   "PhoneNumber": "08342383442",
   "BirthDate": "1991-01-05"
 }, {
-  "ID": 1,
+  "id": 1,
   "Name": "Sera",
   "Email": "ryan@gmail.com",
   "PhoneNumber": "08342383432",
   "BirthDate": "1991-01-01"
 }, {
-  "ID": 2,
+  "id": 2,
   "Name": "Ada anjing",
   "Email": "andre@gmail.com",
   "PhoneNumber": "08342383436",
   "BirthDate": "1991-01-03"
 }, {
-  "ID": 5,
+  "id": 5,
   "Name": "Ada gajah",
   "Email": "alpha@gmail.com",
   "PhoneNumber": "08342383442",
