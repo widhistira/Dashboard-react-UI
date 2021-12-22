@@ -2,22 +2,28 @@ import "./newUser.css";
 import "@material-ui/icons";
 import { useState } from "react";
 import axios from "axios";
+import { useEffect } from "react";
 // import { Link } from "react-router-dom";
+
 
 export default function NewUser() {
   const [email,setEmail] = useState("")
   const [name,setName] = useState("")
   const [phoneNumber,setPhoneNumber] = useState("")
   const [birthDate,setBirthDate] = useState("")
+  const [data, setData] = useState([]);
   const getProductData = async () => {
+
+
     try{
-      
-      const data = await axios.post('http://localhost:8080/user/add', {
+      const xxx = await axios.post('http://localhost:8080/user/add', {
         Name: name,
         Email: email,
         PhoneNumber: phoneNumber,
         BirthDate: birthDate,
       })
+      console.log(xxx);
+      setData(data.data);
     } catch(e){
       console.log(e)
     }
@@ -26,6 +32,10 @@ export default function NewUser() {
     e.preventDefault()
     getProductData()
   }
+  useEffect(() => {
+    getProductData();
+  }, []);
+
   return (
     <div className="newUser">
       <h1 className="newUserTitle">New User</h1>
@@ -61,7 +71,7 @@ export default function NewUser() {
            type="text" 
            placeholder="" />
         </div>
-        <div className="newUserItem">
+        {/* <div className="newUserItem">
           <label>Hobby</label>
           <select className="newUserSelect" name="active" id="active">
             <option value="yes">Basket Ball</option>
@@ -69,7 +79,7 @@ export default function NewUser() {
             <option value="no">Bicycle</option>
             <option value="no">Badminton</option>
           </select>
-        </div>
+        </div> */}
         <div className="newUserItem">
           <label>Gender</label>
           <div className="newUserGender">

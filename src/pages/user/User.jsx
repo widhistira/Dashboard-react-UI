@@ -21,35 +21,35 @@ export default function User() {
       <div className="userContainer">
         <div className="userShow">
           <div className="userShowTop">
-            <img src="../ryan.jpg" alt="" className="userShowImg"/>
+            <img src="../Musica.png" alt="" className="userShowImg"/>
             <div className="userShowTopTitle">
-              <span className="userShowUsername">Ryan Widhistira</span>
-              <span className="userShowUserTitle">Owner</span>
+              <span className="userShowUsername">Musica Store</span>
+              {/* <span className="userShowUserTitle">Owner</span> */}
             </div>
           </div>
           <div className="userShowBottom">
-            <span className="userShowTitle">Account Details</span>
+            <span className="userShowTitle">Example Account Details</span>
             <div className="userShowInfo">
               <PermIdentity className="userShowIcon" />
-              <span className="userShowInfoTitle">Musica Store</span>
-            </div>
-            <div className="userShowInfo">
-              <CalendarToday className="userShowIcon" />
-              <span className="userShowInfoTitle">10.12.1989</span>
-            </div>
-            <span className="userShowTitle">Contact Details</span>
-            <div className="userShowInfo">
-              <PhoneAndroid className="userShowIcon" />
-              <span className="userShowInfoTitle">+628122548769</span>
+              <span className="userShowInfoTitle">Ryan Widhistira</span>
             </div>
             <div className="userShowInfo">
               <MailOutline className="userShowIcon" />
               <span className="userShowInfoTitle">ryan@gmail.com</span>
             </div>
+            <span className="userShowTitle"></span>
             <div className="userShowInfo">
+              <PhoneAndroid className="userShowIcon" />
+              <span className="userShowInfoTitle">+628122548769</span>
+            </div>
+            <div className="userShowInfo">
+              <CalendarToday className="userShowIcon" />
+              <span className="userShowInfoTitle">1990-10-27</span>
+            </div>
+            {/* <div className="userShowInfo">
               <LocationSearching className="userShowIcon" />
               <span className="userShowInfoTitle">Bandung | Indonesia</span>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="userUpdate">
@@ -68,7 +68,7 @@ export default function User() {
                 <label>Full Name</label>
                 <input
                   type="text"
-                  placeholder="#"
+                  placeholder=""
                   className="userUpdateInput"
                 />
               </div>
@@ -76,7 +76,7 @@ export default function User() {
                 <label>Email</label>
                 <input
                   type="text"
-                  placeholder="#"
+                  placeholder=""
                   className="userUpdateInput"
                 />
               </div>
@@ -84,7 +84,7 @@ export default function User() {
                 <label>Phone</label>
                 <input
                   type="text"
-                  placeholder="#"
+                  placeholder=""
                   className="userUpdateInput"
                 />
               </div>
@@ -92,21 +92,21 @@ export default function User() {
                 <label>Birth Date</label>
                 <input
                   type="text"
-                  placeholder="#"
+                  placeholder=""
                   className="userUpdateInput"
                 />
               </div>
             </div>
-            <div className="userUpdateRight">
+            <div className="userUpdateCenter">
               <div className="userUpdateUpload">
-                <img
+                {/* <img
                   className="userUpdateImg"
-                  src="../upload.png"
+                  src=""
                   alt="" 
-                />
-                <label htmlFor="file">
+                /> */}
+                {/* <label htmlFor="file">
                   <Publish className="userUpdateIcon" />
-                </label>
+                </label> */}
                 <input type="file" id="file" style={{ display: "none" }}  /> 
               </div>
               <button className="userUpdateButton">Update</button>

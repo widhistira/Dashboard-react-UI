@@ -28,7 +28,14 @@ export default function UserList() {
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
-
+  <div className="user2">
+  <div className="userTitleContainer2">
+  <h1 className="userTitle">Create</h1>
+ <Link to="/newUser">
+  <button className="userAddButton">Create</button>
+  </Link>
+</div>
+</div>
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
     {
@@ -58,7 +65,7 @@ export default function UserList() {
       headerName: "Birthdate",
       width: 150,
     },
-    {
+      {
       field: "action",
       headerName: "Action",
       width: 150,
@@ -79,14 +86,6 @@ export default function UserList() {
         );
       },
     },
-    <div className="user">
-    <div className="userTitleContainer">
-    <h1 className="userTitle">Create</h1>
-    <Link to="/newUser">
-      <button className="userAddButton">Create</button>
-    </Link>
-  </div>
-  </div>
   ];
 
   return (

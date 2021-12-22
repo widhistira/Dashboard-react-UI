@@ -9,7 +9,7 @@ export default function FeaturedInfo() {
         <div className="featuredMoneyContainer">
           <span className="featuredMoney">Rp. 50.000.000</span>
           <span className="featuredMoneyRate">
-            10.4% <ArrowUpward  className="featuredIcon positive"/>
+            +10.4% <ArrowUpward  className="featuredIcon positive"/>
           </span>
         </div>
         <span className="featuredSub">Perbandingan dengan bulan lalu</span>
@@ -29,7 +29,7 @@ export default function FeaturedInfo() {
         <div className="featuredMoneyContainer">
           <span className="featuredMoney">Rp. 100.000.000</span>
           <span className="featuredMoneyRate">
-            +2.4 <ArrowUpward className="featuredIcon"/>
+            +2.4% <ArrowUpward className="featuredIcon"/>
           </span>
         </div>
         <span className="featuredSub">Perbandingan dengan bulan lalu</span>
