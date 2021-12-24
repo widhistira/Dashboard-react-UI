@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import "./widgetLg.css";
 
 export default function WidgetLg() {

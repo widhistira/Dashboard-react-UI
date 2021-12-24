@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import "./chart.css";
 import {
   LineChart,

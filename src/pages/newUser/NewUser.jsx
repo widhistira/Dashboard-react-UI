@@ -7,30 +7,30 @@ import { useEffect } from "react";
 
 
 export default function NewUser() {
-  const [email,setEmail] = useState("")
-  const [name,setName] = useState("")
-  const [phoneNumber,setPhoneNumber] = useState("")
-  const [birthDate,setBirthDate] = useState("")
+  const [email,setEmail] = useState("");
+  const [name,setName] = useState("");
+  const [phoneNumber,setPhoneNumber] = useState("");
+  const [birthDate,setBirthDate] = useState("");
   const [data, setData] = useState([]);
   const getProductData = async () => {
 
 
     try{
-      const xxx = await axios.post('http://localhost:8080/user/add', {
+      const xxx = await axios.post("http://localhost:8080/user/add", {
         Name: name,
         Email: email,
         PhoneNumber: phoneNumber,
         BirthDate: birthDate,
-      })
+      });
       console.log(xxx);
       setData(data.data);
     } catch(e){
-      console.log(e)
+      console.log(e);
     }
   };
   function handleSubmit(e) {
-    e.preventDefault()
-    getProductData()
+    e.preventDefault();
+    getProductData();
   }
   useEffect(() => {
     getProductData();
@@ -47,29 +47,29 @@ export default function NewUser() {
         <div className="newUserItem">
           <label>Full Name</label>
           <input 
-          onChange={(e) => setName(e.target.value)}
-          type="text" 
-          placeholder="" />
+            onChange={(e) => setName(e.target.value)}
+            type="text" 
+            placeholder="" />
         </div>
         <div className="newUserItem">
           <label>Email</label>
-          <input  onChange={(e) => setEmail(e.target.value)} 
-          type="email" 
-          placeholder="" />
+          <input onChange={(e) => setEmail(e.target.value)} 
+            type="email" 
+            placeholder="" />
         </div>
         <div className="newUserItem">
           <label>Phone Number</label>
           <input 
-           onChange={(e) => setPhoneNumber(e.target.value)}
-           type="text" 
-           placeholder="" />
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            type="text" 
+            placeholder="" />
         </div>
         <div className="newUserItem">
           <label>Birth Date</label>
           <input 
-           onChange={(e) => setBirthDate(e.target.value)}
-           type="text" 
-           placeholder="" />
+            onChange={(e) => setBirthDate(e.target.value)}
+            type="text" 
+            placeholder="" />
         </div>
         {/* <div className="newUserItem">
           <label>Hobby</label>

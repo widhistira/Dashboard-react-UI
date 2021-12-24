@@ -1,78 +1,67 @@
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/display-name */
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 // import { userRows, users } from "../../dummyData";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import "./userList.css";
-// import { DataGrid } from '@mui/x-data-grid';
+import GeneralService from "../../services/GeneralService";
 
-export default function UserList() {
-
-
+export default function UserList () {
   const [data, setData] = useState([]);
-  const getProductData = async () => {
-    try{
-      const data = await axios.get("http://localhost:8080/user/list");
-      console.log(data);
-      setData(data.data);
-    } catch(e){
-      console.log(e)
-    }
-  };
-
-  useEffect(() => {
-    getProductData();
+  useEffect(async () => {
+    axios.get("https://fpos.didieu.xyz/api/user/usr/getUserList", {
+      headers: GeneralService.getTokenHeader()
+    })
+      .then(res => {
+        const users = res.data.result.content;
+        setData(Object.values(users));
+        console.log(users);
+      });
   }, []);
 
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
   <div className="user2">
-  <div className="userTitleContainer2">
-  <h1 className="userTitle">Create</h1>
- <Link to="/newUser">
-  <button className="userAddButton">Create</button>
-  </Link>
-</div>
-</div>
+    <div className="userTitleContainer2">
+      <h1 className="userTitle">Create</h1>
+      <Link to="/newUser">
+        <button className="userAddButton">Create</button>
+      </Link>
+    </div>
+  </div>;
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
     {
-      field: "name",
-      headerName: "Name",
-      width: 200,
-      // renderCell: (params) => {
-      //   return (
-
-      //     <div className="userListUser">
-      //       {/* <img className="#" src={params.row.avatar} alt="" />
-      //       {params.row.username} */}
-      //     </div>
-      //   );
-      // },
+      field: "userId",
+      headerName: "userId",
+      width: 180
     },
-    { field: "email", 
-      headerName: "Email", 
-      width: 200 },
+    {
+      field: "firstName",
+      headerName: "Name",
+      width: 200
+    },
+    {
+      field: "email",
+      headerName: "Email",
+      width: 200
+    },
     {
       field: "phoneNumber",
       headerName: "Phone Number",
-      width: 180,
+      width: 180
     },
     {
-      field: "birthDate",
-      headerName: "Birthdate",
-      width: 150,
-    },
-      {
       field: "action",
       headerName: "Action",
       width: 150,
       renderCell: (params) => {
         return (
           <>
-           {/* <Link to={"/newUser/" + params.row.id}>
+            {/* <Link to={"/newUser/" + params.row.id}>
               <button className="userListEdit">Create</button>
             </Link> */}
             <Link to={"/user/" + params.row.id}>
@@ -80,17 +69,17 @@ export default function UserList() {
             </Link>
             <DeleteOutline
               className="userListDelete"
-              onClick={() => handleDelete(params.row.id)}
-            />
+              onClick={() => handleDelete(params.row.id)}/>
           </>
         );
-      },
-    },
+      }
+    }
   ];
 
   return (
     <div className="userList">
       <DataGrid
+        getRowId = {(r) => r.userId}
         rows={data}
         disableSelectionOnClick
         columns={columns}
@@ -100,4 +89,3 @@ export default function UserList() {
     </div>
   );
 }
-
