@@ -25,14 +25,6 @@ export default function UserList () {
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
-  <div className="user2">
-    <div className="userTitleContainer2">
-      <h1 className="userTitle">Create</h1>
-      <Link to="/newUser">
-        <button className="userAddButton">Create</button>
-      </Link>
-    </div>
-  </div>;
   const columns = [
     {
       field: "userId",
@@ -77,15 +69,22 @@ export default function UserList () {
   ];
 
   return (
-    <div className="userList">
-      <DataGrid
-        getRowId = {(r) => r.userId}
-        rows={data}
-        disableSelectionOnClick
-        columns={columns}
-        pageSize={8}
-        checkboxSelection
-      />
+    <div className="user2">
+      <div className="userTitleContainer2">
+        <Link to="/newUser">
+          <button className="userAddButton">Create</button>
+        </Link>
+        <div className="userList">
+          <DataGrid
+            getRowId = {(r) => r.userId}
+            rows={data}
+            disableSelectionOnClick
+            columns={columns}
+            pageSize={8}
+            checkboxSelection
+          />
+        </div>
+      </div>
     </div>
   );
 }
