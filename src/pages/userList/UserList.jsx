@@ -29,27 +29,32 @@ export default function UserList () {
     {
       field: "userId",
       headerName: "userId",
-      width: 180
+      width: 160
     },
     {
       field: "firstName",
       headerName: "Name",
-      width: 200
+      width: 160
+    },
+    {
+      field: "lastName",
+      headerName: "LastName",
+      width: 160
     },
     {
       field: "email",
       headerName: "Email",
-      width: 200
+      width: 160
     },
     {
       field: "phoneNumber",
       headerName: "Phone Number",
-      width: 180
+      width: 160
     },
     {
       field: "action",
       headerName: "Action",
-      width: 150,
+      width: 160,
       renderCell: (params) => {
         return (
           <>
@@ -69,22 +74,21 @@ export default function UserList () {
   ];
 
   return (
-    <div className="user2">
-      <div className="userTitleContainer2">
-        <Link to="/newUser">
-          <button className="userAddButton">Create</button>
-        </Link>
-        <div className="userList">
-          <DataGrid
-            getRowId = {(r) => r.userId}
-            rows={data}
-            disableSelectionOnClick
-            columns={columns}
-            pageSize={8}
-            checkboxSelection
-          />
-        </div>
-      </div>
+    <div className="userList"> 
+      <Link to="/newUser">    
+        <button>Create</button>
+        {/* <button className="userAddButton">Create</button> */}
+      </Link>
+      <DataGrid
+        getRowId = {(r) => r.userId}
+        rows={data}
+        disableSelectionOnClick
+        columns={columns}
+        pageSize={8}
+        checkboxSelection
+      />
     </div>
+    
+  
   );
 }

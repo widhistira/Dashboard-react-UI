@@ -1,5 +1,6 @@
 .userList {
   flex: 4;
+  padding-top: 0%;
 }
 
 .userListUser {
@@ -29,7 +30,7 @@
     color: red;
     cursor: pointer;
 }
-.userTitleContainer {
+/* .userAddButton {
   display: flex;
   justify-content: space-between;
   width: 80px;
@@ -40,4 +41,23 @@
   cursor: pointer;
   color: white;
   font-size: 16px;
+  padding-bottom: 5%;
+} */
+.MuiDataGrid-root {
+  flex: 1;
+  color: rgba(0, 0, 0, 0.87);
+  border: 1px solid rgba(224, 224, 224, 1);
+  height: 100%;
+  display: flex;
+  outline: none;
+  position: relative;
+  font-size: 0.875rem;
+  box-sizing: border-box;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  border-radius: 4px;
+  flex-direction: column;
+  letter-spacing: 0.01071em;
+  padding-bottom: 20%;
 }

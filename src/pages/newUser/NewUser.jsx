@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import GeneralService from "../../services/GeneralService";
 import AlertDialogSlide from "./UserDialog";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
@@ -101,7 +101,9 @@ export default function NewUser() {
             type="phoneNumber" 
             placeholder="" />
         </div>
-        <button type="submit" className="newUserButton" onSubmit={handleSubmit}>Submit</button>
+        <Link to="/UserList">
+          <button type="submit" className="newUserButton" onSubmit={handleSubmit}>Submit</button>
+        </Link>
       </form>
     </div>
     
