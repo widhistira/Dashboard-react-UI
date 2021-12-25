@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { FormGroup, FormControl, InputLabel, Input, Button, makeStyles, Typography } from "@material-ui/core";
 import { useHistory, useParams } from "react-router-dom";
-import { getUsers, editUser } from "../services/UserService";
+import { getUsers, editUser } from "../../services/UserService";
 
 
 const initialValue = {
@@ -24,8 +24,8 @@ const useStyles = makeStyles({
 
 const EditUser = () => {
   const [user, setUser] = useState(initialValue);
-  const { name, username, email, phone } = user;
-  const { id } = useParams();
+  const {firstName, username, email, phoneNumber } = user;
+  const {userId} = useParams();
   const classes = useStyles();
   let history = useHistory();
 
@@ -34,13 +34,14 @@ const EditUser = () => {
   }, []);
 
   const loadUserDetails = async() => {
-    const response = await getUsers(id);
-    setUser(response.data);
+    const response = await getUsers(userId);
+    setUser(response.data.result);
   };
 
   const editUserDetails = async() => {
-    const response = await editUser(id, user);
-    history.push("/all");
+    alert(user);
+    await editUser(userId, user);
+    history.push("/users");
   };
 
   const onValueChange = (e) => {
@@ -50,10 +51,10 @@ const EditUser = () => {
 
   return (
     <FormGroup className={classes.container}>
-      <Typography variant="h4">Edit Information</Typography>
+      <Typography variant="h4">Edit User</Typography>
       <FormControl>
-        <InputLabel htmlFor="my-input">Name</InputLabel>
-        <Input onChange={(e) => onValueChange(e)} name='name' value={name} id="my-input" aria-describedby="my-helper-text" />
+        <InputLabel htmlFor="my-input">First Name</InputLabel>
+        <Input onChange={(e) => onValueChange(e)} name='firstName' value={firstName} id="my-input" aria-describedby="my-helper-text" />
       </FormControl>
       <FormControl>
         <InputLabel htmlFor="my-input">Username</InputLabel>
@@ -64,8 +65,8 @@ const EditUser = () => {
         <Input onChange={(e) => onValueChange(e)} name='email' value={email} id="my-input" aria-describedby="my-helper-text" />
       </FormControl>
       <FormControl>
-        <InputLabel htmlFor="my-input">Phone</InputLabel>
-        <Input onChange={(e) => onValueChange(e)} name='phone' value={phone} id="my-input" aria-describedby="my-helper-text" />
+        <InputLabel htmlFor="my-input">Phone Number</InputLabel>
+        <Input onChange={(e) => onValueChange(e)} name='phoneNumber' value={phoneNumber} id="my-input" aria-describedby="my-helper-text" />
       </FormControl>
       <FormControl>
         <Button variant="contained" color="primary" onClick={() => editUserDetails()}>Edit User</Button>

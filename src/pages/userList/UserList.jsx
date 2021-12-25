@@ -22,9 +22,9 @@ export default function UserList () {
       });
   }, []);
 
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
-  };
+  // const handleDelete = (id) => {
+  //   setData(data.filter((item) => item.id !== id));
+  // };
   const columns = [
     {
       field: "userId",
@@ -56,17 +56,26 @@ export default function UserList () {
       headerName: "Action",
       width: 160,
       renderCell: (params) => {
+        const onClickDelete = async () => {
+          return alert(JSON.stringify(params.row, null, 4));
+        };
         return (
           <>
             {/* <Link to={"/newUser/" + params.row.id}>
               <button className="userListEdit">Create</button>
             </Link> */}
-            <Link to={"/user/" + params.row.id}>
+            <Link to={"/user/" + params.getValue(params.id,"userId")}>
               <button className="userListEdit">Edit</button>
             </Link>
             <DeleteOutline
               className="userListDelete"
-              onClick={() => handleDelete(params.row.id)}/>
+              onClick={onClickDelete}/>
+            {/* onClick={() => handleDelete(params.row.id)}/> */}
+            {/* <DeleteOutline
+              className="userListDelete"
+              // onClick={() => handleDelete(params.row.id)}/>
+              onClick={onClickDelete}/> */}
+
           </>
         );
       }
@@ -74,10 +83,10 @@ export default function UserList () {
   ];
 
   return (
-    <div className="userList"> 
-      <Link to="/newUser">    
-        <button>Create</button>
-        {/* <button className="userAddButton">Create</button> */}
+    <div className="userList">
+      <Link to="/newUser">   
+        <button className="userAddButton">Create</button>
+        <button className="userAddButton2"></button>
       </Link>
       <DataGrid
         getRowId = {(r) => r.userId}
@@ -88,7 +97,6 @@ export default function UserList () {
         checkboxSelection
       />
     </div>
-    
-  
+    // </div>
   );
 }

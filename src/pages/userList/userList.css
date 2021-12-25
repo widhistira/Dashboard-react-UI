@@ -30,19 +30,30 @@
     color: red;
     cursor: pointer;
 }
-/* .userAddButton {
+.userAddButton {
   display: flex;
   justify-content: space-between;
   width: 80px;
   border: none;
   padding: 5px;
-  background-color: teal;
-  border-radius: 5px;
+  background-color: rgba(10, 151, 151, 0.589);
+  border-radius: 1px;
   cursor: pointer;
-  color: white;
-  font-size: 16px;
-  padding-bottom: 5%;
-} */
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.userAddButton2 {
+  display: flex;
+  justify-content: space-between;
+  width: 1800px;
+  border: none;
+  padding: 5px;
+  background-color: rgba(10, 151, 151, 0.589);
+  border-radius: 0px;
+}
+
 .MuiDataGrid-root {
   flex: 1;
   color: rgba(0, 0, 0, 0.87);

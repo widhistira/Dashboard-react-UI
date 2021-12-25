@@ -3,8 +3,9 @@ import "@material-ui/icons";
 import { useState } from "react";
 import axios from "axios";
 import GeneralService from "../../services/GeneralService";
-import AlertDialogSlide from "./UserDialog";
-import { Link } from "react-router-dom";
+// import setStatusBase from "./UserDialog";
+
+// import { Link } from "react-router-dom";
 
 
 
@@ -17,7 +18,7 @@ export default function NewUser() {
   const [phoneNumber,setPhoneNumber] = useState("");
   const [language,setLanguage] = useState("");
 
-  const getProductData = async () => {
+  const submitData = async () => {
     try{
       const data = await axios.post("https://fpos.didieu.xyz/api/user/usr/createUser", {
         username: userName,
@@ -42,8 +43,7 @@ export default function NewUser() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log(e);
-    getProductData();
-    AlertDialogSlide; 
+    submitData();
   }
 
 
@@ -101,9 +101,7 @@ export default function NewUser() {
             type="phoneNumber" 
             placeholder="" />
         </div>
-        <Link to="/UserList">
-          <button type="submit" className="newUserButton" onSubmit={handleSubmit}>Submit</button>
-        </Link>
+        <button type="submit" className="newUserButton" onSubmit={handleSubmit}>Submit</button>
       </form>
     </div>
     

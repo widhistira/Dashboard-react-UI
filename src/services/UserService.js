@@ -1,7 +1,7 @@
 import axios from "axios";
 import GeneralService from "./GeneralService";
 
-const usersUrl = "https://fpos.didieu.xyz/api";
+const usersUrl = "https://fpos.didieu.xyz/api/user/usr";
 
 
 export const getUsers = async (id) => {
@@ -21,5 +21,9 @@ export const deleteUser = async (id) => {
 };
 
 export const editUser = async (id, user) => {
-  return await axios.put(`${usersUrl}/${id}`, user);
+  return await axios.post(
+    `${usersUrl}/updateUser?userId=${id}`,
+    user, 
+    {headers: GeneralService.getTokenHeader()
+    });
 };
