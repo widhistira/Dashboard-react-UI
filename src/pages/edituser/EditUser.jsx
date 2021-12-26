@@ -24,7 +24,7 @@ const useStyles = makeStyles({
 });
 
 const EditUser = () => {
-  const [user, setUser] = useState(initialValue);
+  const [user, setUser] = useState(initialValue || "");
   const {firstName,lastName, username, email, phoneNumber} = user;
   const {userId} = useParams();
   const classes = useStyles();

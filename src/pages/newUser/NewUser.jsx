@@ -25,7 +25,7 @@ export default function NewUser() {
   const [lastName,setLastName] = useState("");
   const [phoneNumber,setPhoneNumber] = useState("");
   const [language,setLanguage] = useState("");
-  const [state,setState] = useState("");
+  const [state,setState] = useState({open: false});
   let history = useHistory();
 
   const submitData = async () => {
