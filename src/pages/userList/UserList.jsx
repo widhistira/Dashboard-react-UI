@@ -12,7 +12,7 @@ import GeneralService from "../../services/GeneralService";
 export default function UserList () {
   const [data, setData] = useState([]);
   useEffect(async () => {
-    axios.get("https://fpos.didieu.xyz/api/user/usr/getUserList", {
+    await axios.get("https://fpos.didieu.xyz/api/user/usr/getUserList", {
       headers: GeneralService.getTokenHeader()
     })
       .then(res => {

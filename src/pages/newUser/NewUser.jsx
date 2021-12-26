@@ -3,6 +3,14 @@ import "@material-ui/icons";
 import { useState } from "react";
 import axios from "axios";
 import GeneralService from "../../services/GeneralService";
+import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import Button from "@material-ui/core/Button";
+import DialogActions from "@material-ui/core/DialogActions";
+import { useHistory } from "react-router-dom";
+// import { FormControl, Button,} from "@material-ui/core";
+// import { useParams } from "react-router-dom";
 // import setStatusBase from "./UserDialog";
 
 // import { Link } from "react-router-dom";
@@ -17,6 +25,8 @@ export default function NewUser() {
   const [lastName,setLastName] = useState("");
   const [phoneNumber,setPhoneNumber] = useState("");
   const [language,setLanguage] = useState("");
+  const [state,setState] = useState("");
+  let history = useHistory();
 
   const submitData = async () => {
     try{
@@ -40,12 +50,15 @@ export default function NewUser() {
       console.log(e);
     }
   };
+  function handleClose() {
+    history.push("/users");
+  }
   function handleSubmit(e) {
     e.preventDefault();
     console.log(e);
     submitData();
+    setState({open: true});
   }
-
 
   return (
     <div className="newUser">
@@ -102,6 +115,18 @@ export default function NewUser() {
             placeholder="" />
         </div>
         <button type="submit" className="newUserButton" onSubmit={handleSubmit}>Submit</button>
+        <Dialog open={state.open} onEnter={console.log("Hey.")}>
+          <DialogTitle>Hello User</DialogTitle>
+          <DialogContent>youre Data Has Been Succesfull Created!</DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} autoFocus>
+            OK!
+            </Button>
+          </DialogActions>
+        </Dialog>
+        {/* <FormControl>
+          <Button variant="contained" color="primary" onClick={() => handleSubmit()}>Submit</Button>
+        </FormControl> */}
       </form>
     </div>
     
