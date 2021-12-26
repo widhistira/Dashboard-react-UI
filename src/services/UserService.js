@@ -3,6 +3,12 @@ import GeneralService from "./GeneralService";
 
 const usersUrl = "https://fpos.didieu.xyz/api/user/usr";
 
+export const getUserList = async () => {
+  return await axios.get(
+    `${usersUrl}/getUserList?size=100`,
+    {headers: GeneralService.getTokenHeader()
+    });
+};
 
 export const getUsers = async (id) => {
   id = id || "";
@@ -14,10 +20,6 @@ export const getUsers = async (id) => {
 
 export const addUser = async (user) => {
   return await axios.post(`${usersUrl}/add`, user);
-};
-
-export const deleteUser = async (id) => {
-  return await axios.delete(`${usersUrl}/${id}`);
 };
 
 export const editUser = async (id, user, roleIds) => {

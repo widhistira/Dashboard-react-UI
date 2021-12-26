@@ -1,8 +1,8 @@
-import "./newUser.css";
+import "./UserCreate.css";
 import "@material-ui/icons";
 import { useState } from "react";
 import axios from "axios";
-import GeneralService from "../../services/GeneralService";
+import GeneralService from "../../../services/GeneralService";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
@@ -17,7 +17,7 @@ import { useHistory } from "react-router-dom";
 
 
 
-export default function NewUser() {
+export default function UserCreate() {
   const [email,setEmail] = useState("");
   const [userName,setUserName] = useState("");
   const [password,setPassword] = useState("");
