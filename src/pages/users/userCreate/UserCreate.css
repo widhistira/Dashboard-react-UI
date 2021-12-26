@@ -6,7 +6,6 @@
 .newUserForm {
   display: flex;
   flex-direction: column;
-  
 }
 
 .newUserItem {

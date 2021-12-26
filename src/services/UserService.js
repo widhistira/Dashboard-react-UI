@@ -19,7 +19,23 @@ export const getUsers = async (id) => {
 };
 
 export const addUser = async (user) => {
-  return await axios.post(`${usersUrl}/add`, user);
+  const body = {
+    username: user.username,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    password: user.password,
+    email: user.email,
+    phoneNumber: user.phoneNumber,
+    language: user.language,
+    enterpriseId: "a06e38ea-d871-4945-8126-44fab717180a",
+    roleId: [
+      "df462e06-787b-465c-b203-d97fb9579cc9"
+    ],
+    mailVerification: false
+  };
+
+  return await axios.post(`${usersUrl}/createUser`, body, {
+    headers:  GeneralService.getTokenHeader()});
 };
 
 export const editUser = async (id, user, roleIds) => {
